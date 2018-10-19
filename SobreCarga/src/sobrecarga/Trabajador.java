@@ -31,12 +31,11 @@ public class Trabajador {
         return sueldo_mensual;
 }
     
-     public void agregar_sueldo(double[] sueldos){
-        double s=0;
-        for (int i = 0; i < 4; i++) {
-            s=s+sueldos[i];
+      public void agregar_sueldo(double sueldo_semanal[]){
+        for (int i=0; i<4; i++){
+            sueldo_mensual= sueldo_mensual+sueldo_semanal[i];
         }
-        sueldo_mensual=s;
+
 }
         
     public void agregar_apellidos(String n){
@@ -57,7 +56,7 @@ public class Trabajador {
                 + "Sueldo: %.2f", obtener_nombres(), obtener_apellidos(),
                 obtener_sueldo_mensual());
     }
-    
-   
+
+
     
 }

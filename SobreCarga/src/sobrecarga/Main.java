@@ -18,58 +18,51 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+
+        double sueldo = 0;
+        double sueldo_semanal[] = new double[4];
         Scanner scanner = new Scanner(System.in);
         Trabajador t = new Trabajador();
-        
+
         System.out.println("Número de nombres del trabajador 1 o 2");
         int numero_nombres = scanner.nextInt();
         scanner.nextLine();
-        
-        if(numero_nombres==1){
+
+        if (numero_nombres == 1) {
             System.out.println("Ingrese el nombre del trabajador");
             String nombre = scanner.nextLine();
             t.agregar_nombres(nombre);
-        }else{
+        } else {
             System.out.println("Ingrese el nombre uno del trabajador");
             String nombre1 = scanner.nextLine();
             System.out.println("Ingrese el nombre dos del trabajador");
             String nombre2 = scanner.nextLine();
             t.agregar_nombres(nombre1, nombre2);
-        
+
         }
-        
-        Scanner scanner1 = new Scanner(System.in);
-        Trabajador t1 = new Trabajador();
-        
-        System.out.println("Sueldo mensual 1 o por semanas 2");
-        int numero_sueldo = scanner1.nextInt();
-        scanner1.nextInt();
-        
-        if(numero_sueldo==1){
-             System.out.println("Ingrese el sueldo mensual");
-             double sueldo = scanner.nextDouble();
-            t1.agregar_sueldo(sueldo);
-        }else{
-            System.out.println("Ingrese sueldo semana 1:");
-            double sueldo1 = scanner.nextDouble();
-            System.out.println("Ingrese sueldo semana 2");
-            double sueldo2 = scanner.nextDouble();
-            System.out.println("Ingrese sueldo semana 3");
-            double sueldo3 = scanner.nextDouble();
-            System.out.println("Ingrese sueldo semana 4");
-            double sueldo4 = scanner.nextDouble();
-            t1.agregar_sueldo(sueldo1, sueldo2, sueldo3, sueldo4);
-        }
-        
         System.out.println("Ingrese el apellido del trabajador");
         String apellidos = scanner.nextLine();
+
         t.agregar_apellidos(apellidos);
-        
-        
+        System.out.println("(1) Ingresar sueldo semanal \n (2) Ingresar sueldo mensual: ");
+        int opcion = scanner.nextInt();
+        switch (opcion) {
+            case (1):
+                for (int i = 0; i < 4; i++) {
+                    System.out.println("Ingresar sueldo semanal " + (i + 1) + ":");
+                    sueldo_semanal[i] = scanner.nextDouble();
+                }
+                t.agregar_sueldo(sueldo_semanal);
+                break;
+            case (2):
+                System.out.println("Ingresar sueldo mensual:");
+                sueldo = scanner.nextDouble();
+                t.agregar_sueldo(sueldo);
+                break;
+        }
+
         System.out.printf("Los datos del trabajador son: %s\n", t.presentar_datos());
-        
-                
 
     }
-    
+
 }
